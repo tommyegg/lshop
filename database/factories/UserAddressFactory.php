@@ -13,10 +13,10 @@ class UserAddressFactory extends Factory
     public function definition()
     {
         $addresses = [
-            ['台灣','台灣省',"台中市", "南區"],
-            ['台灣','台灣省',"新北市", "中和區"],
-            ['台灣','台灣省',"台北市", "大安區"],
-            ['台灣','台灣省',"台南市", "安平區"],
+            ['tw','tw',"臺中市", "南區"],
+            ['tw','tw',"新北市", "中和區"],
+            ['tw','tw',"臺北市", "大安區"],
+            ['tw','tw',"臺南市", "安平區"],
         ];
         $address   = $this->faker->randomElement($addresses);
 
