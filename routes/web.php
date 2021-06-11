@@ -19,7 +19,20 @@ Auth::routes(['verify' => true]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-//收件地址編輯
+
 Route::group(['middleware' => ['auth', 'verified']], function() {
+    //收件地址列表
     Route::get('user_addresses', 'UserAddressesController@index')->name('user_addresses.index');
+
+    //收件地址編輯頁面
+    Route::get('user_addresses/create', 'UserAddressesController@create')->name('user_addresses.create');
+
+    //收件地址編輯頁面提交
+    Route::post('user_addresses', 'UserAddressesController@store')->name('user_addresses.store');
+
+    //進入收件地址編輯頁面
+    Route::get('user_addresses/{user_address}', 'UserAddressesController@edit')->name('user_addresses.edit');
+
+    //儲存編輯後的收件地址
+    Route::put('user_addresses/{user_address}', 'UserAddressesController@update')->name('user_addresses.update');
 });
