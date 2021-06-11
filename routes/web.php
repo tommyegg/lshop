@@ -35,4 +35,7 @@ Route::group(['middleware' => ['auth', 'verified']], function() {
 
     //儲存編輯後的收件地址
     Route::put('user_addresses/{user_address}', 'UserAddressesController@update')->name('user_addresses.update');
+
+    //刪除收件地址
+    Route::delete('user_addresses/{user_address}', 'UserAddressesController@destroy')->name('user_addresses.destroy');
 });
