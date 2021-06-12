@@ -60,7 +60,10 @@ class ProductsController extends AdminController
 
         $form->text('title', '商品名稱')->rules('required');
 
-        $form->image('image', '封面圖片')->rules('required|image');
+        $form->image('image', '封面圖片')
+            ->rules('required|image')
+            ->thumbnail('small', $width = 300, $height = 300)
+            ->uniqueName();
 
         $form->quill('description', '商品描述')->rules('required');
 
