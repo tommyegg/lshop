@@ -44,6 +44,9 @@ Route::group(['middleware' => ['auth', 'verified']], function() {
 
     //收藏列表
     Route::get('products/favorites', 'ProductsController@favorites')->name('products.favorites');
+
+    //商品加入購物車
+    Route::post('cart', 'CartController@add')->name('cart.add');
 });
 
 Route::redirect('/', '/products')->name('root');
