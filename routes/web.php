@@ -13,12 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'PagesController@root')->name('root');
+Route::redirect('/', '/products')->name('root');
+Route::get('products', 'ProductsController@index')->name('products.index');
 
 Auth::routes(['verify' => true]);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
 
 Route::group(['middleware' => ['auth', 'verified']], function() {
     //收件地址列表
