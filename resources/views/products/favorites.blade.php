@@ -7,28 +7,28 @@
       <div class="card">
         <div class="card-header">我的收藏</div>
         <div class="card-body">
-          <div class="row products-list">
+          <form action="{{ route('products.index') }}">
+            <div class="product-list-header">
+            </div>
+          </form>
+          <div class="products-list">
             @foreach($products as $product)
-              <div class="col-3 product-item">
+              <div class="product-item">
                 <div class="product-content">
-                  <div class="top">
-                    <div class="img">
-                      <a href="{{ route('products.show', ['product' => $product->id]) }}">
-                        <img src="{{ $product->image_url }}" alt="">
-                      </a>
-                    </div>
-                    <div class="price"><b>￥</b>{{ $product->price }}</div>
+                  <div class="product-img">
+                    <a href="{{ route('products.show', ['product' => $product->id]) }}">
+                      <img src="{{ $product->image_url }}" alt="">
+                    </a>
+                  </div>
+                  <div class="title">
                     <a href="{{ route('products.show', ['product' => $product->id]) }}">{{ $product->title }}</a>
                   </div>
-                  <div class="bottom">
-                    <div class="sold_count">銷量 <span>{{ $product->sold_count }}個</span></div>
-                    <div class="review_count">評價 <span>{{ $product->review_count }}</span></div>
-                  </div>
+                  <div class="price"><b>$</b>{{ $product->price }}</div>
                 </div>
               </div>
             @endforeach
           </div>
-          <div class="float-right">{{ $products->render() }}</div>
+          <div class="products-page">{{ $products->render() }}</div>
         </div>
       </div>
     </div>
