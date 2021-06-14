@@ -15,4 +15,9 @@ class ProductSku extends Model
     {
         return $this->belongsTo(Product::class);
     }
+
+    public function getPriceAttribute($price) : string
+    {
+        return humanReadPrice($this->attributes['price']);
+    }
 }
