@@ -47,6 +47,12 @@ Route::group(['middleware' => ['auth', 'verified']], function() {
 
     //商品加入購物車
     Route::post('cart', 'CartController@add')->name('cart.add');
+
+    //查看購物車
+    Route::get('cart', 'CartController@index')->name('cart.index');
+
+    //刪除購物車商品
+    Route::delete('cart/{sku}', 'CartController@remove')->name('cart.remove');
 });
 
 Route::redirect('/', '/products')->name('root');
