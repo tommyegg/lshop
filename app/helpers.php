@@ -7,5 +7,6 @@ function route_class()
 
 function humanReadPrice(int|float $amount)
 {
-    return number_format($amount, 0);
+    return (int)$amount;
+//    return number_format($amount, 0,'');
 }
