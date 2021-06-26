@@ -20,4 +20,21 @@ class ProductSku extends Model
     {
         return humanReadPrice($this->attributes['price']);
     }
+
+    public function decreaseStock($amount)
+    {
+        if ($amount < 0) {
+            throw new InternalException('減庫存不可以小於0');
+        }
+
+        return $this->where('id', $this->id)->where('stock', '>=', $amount)->decrement('stock', $amount);
+    }
+
+    public function addStock($amount)
+    {
+        if ($amount < 0) {
+            throw new InternalException('加庫存不可以小於0');
+        }
+        $this->increment('stock', $amount);
+    }
 }
