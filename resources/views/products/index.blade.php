@@ -34,7 +34,7 @@
               <div class="product-content">
                 <div class="product-img">
                   <a href="{{ route('products.show', ['product' => $product->id]) }}">
-                    <img src="{{ $product->image_url }}" alt="">
+                    <img src="{{ asset($product->image_url) }} " alt="">
                   </a>
                 </div>
                 <div class="title">

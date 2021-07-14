@@ -21,17 +21,17 @@ class ProductFactory extends Factory
      */
     public function definition()
     {
-        $url = 'lshop.test/storage/images/example-img';
+        $url = 'images/example-img';
         $image = $this->faker->randomElement([
-            "http://{$url}/1.jpeg",
-            "http://{$url}/2.jpeg",
-            "http://{$url}/3.jpeg",
-            "http://{$url}/4.jpeg",
-            "http://{$url}/5.jpeg",
-            "http://{$url}/6.jpeg",
-            "http://{$url}/7.jpeg",
-            "http://{$url}/8.jpeg",
-            "http://{$url}/9.jpeg",
+            "{$url}/1.jpeg",
+            "{$url}/2.jpeg",
+            "{$url}/3.jpeg",
+            "{$url}/4.jpeg",
+            "{$url}/5.jpeg",
+            "{$url}/6.jpeg",
+            "{$url}/7.jpeg",
+            "{$url}/8.jpeg",
+            "{$url}/9.jpeg",
         ]);
 
         return [
